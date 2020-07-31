@@ -27,7 +27,11 @@ mongoose
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.Front_URL,
+  })
+);
  app.use(passwordRoutes);
  app.use(userRoutes);
 
