@@ -20,7 +20,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-//  app.use(cors());
 dotenv.config({ path: "./.env" });
 
 mongoose
