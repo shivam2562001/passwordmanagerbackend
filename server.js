@@ -1,15 +1,15 @@
 const express = require("express");
-const app = express();
-
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const cors = require('cors')
+const cors = require("cors");
 //Requiring user and admin route
  const userRoutes = require("./routes/user");
  const passwordRoutes = require("./routes/passwordmanager");
 
+ const app = express();
 
+ app.use(cors());
 dotenv.config({ path: "./.env" });
 
 mongoose
@@ -27,11 +27,6 @@ mongoose
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: process.env.Front_URL,
-  })
-);
  app.use(passwordRoutes);
  app.use(userRoutes);
 
